@@ -1,0 +1,60 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "CONJUNTO ESMERALDA",
+      "descricao": "Em alfaiataria, tamanho único",
+      "preco": 149.90,
+      "imagem": "./image/CONJUNTO ESMERALDA.jpeg"
+    },
+    {
+      "id": 2,
+      "nome": "CONJUNTO SOL",
+      "descricao": "Tecido crepe, veste até um 44.",
+      "preco": 89.90,
+      "imagem": "./image/CONJUNTO SOL.jpeg"
+    },
+    {
+      "id": 3,
+      "nome": "CONJUNTO JADE",
+      "descricao": "Tecido crepe, veste até um 44.",
+      "preco": 189.90,
+      "imagem": "./image/CONJUNTO JADE.jpeg"
+    },
+    {
+      "id": 4,
+      "nome": "VESTIDO SICILIA",
+      "descricao": "Tecido Alfaiataria, tamanho único.",
+      "preco": 190.00,
+      "imagem": "./image/VESTIDO SICILIA.jpeg"
+    },
+    {
+      "id": 5,
+      "nome": "CONJUNTO LUA",
+      "descricao": "Tecido Linho, veste até um 40.",
+      "preco": 200.00,
+      "imagem": "./image/CONJUNTO LUA.jpeg"
+    },
+    {
+      "id": 6,
+      "nome": "CONJUNTO RUBI",
+      "descricao": "Tecido Linho, tamanho único.",
+      "preco": 120.90,
+      "imagem": "./image/CONJUNTO RUBI.jpeg"
+    },
+    {
+      "id": 7,
+      "nome": "VESTIDO JASMIM",
+      "descricao": "Tecido Alfaiataria, veste até um 42.",
+      "preco": 150.85,
+      "imagem": "./image/VESTIDO JASMIM.jpeg"
+    },
+    {
+      "id": 8,
+      "nome": "CONJUNTO HILARY",
+      "descricao": "Conjunto em alfaiataria premium, veste até um 42.",
+      "preco": 169.90,
+      "imagem": "./image/CONJUNTO HILARY.jpeg"
+    }
+  ]
+}

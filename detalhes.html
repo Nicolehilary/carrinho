@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg" style="background-color: #c45317;">
+        <div class="container-fluid">
+          
+          <a class="navbar-brand" href="index.html">NH BRAND</a>
+          
+          <div class="search-bar">
+              <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="O que você está procurando?" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit"> Pesquisar</button>
+              </form>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container mt-5">
+        <h1>Detalhes do Produto</h1>
+        <div id="produto-detalhes"></div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const produtoId = getQueryParam('id');
+
+        function adicionarAoCarrinho(produto) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.push(produto); 
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            alert('Produto adicionado ao carrinho!');
+        }
+
+        fetch(`http://localhost:3000/produtos/${produtoId}`)
+            .then(response => response.json())
+            .then(produto => {
+                if (produto) {
+                    const detalhesDiv = document.getElementById('produto-detalhes');
+                    detalhesDiv.innerHTML = `
+                        <div class="card">
+                            <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
+                            <div class="card-body">
+                                <h5 class="card-title">${produto.nome}</h5>
+                                <p class="card-text">${produto.descricao}</p>
+                                <p class="card-text">Preço: R$ ${produto.preco.toFixed(2)}</p>
+                                <a href="carrinho.html?id=${produtoId}" class="btn btn-success" id="adicionarCarrinho">Adicionar ao Carrinho</a>
+                            </div>
+                        </div>
+                    `;
+
+                    document.getElementById('adicionarCarrinho').addEventListener('click', function() {
+                        adicionarAoCarrinho(produto);
+                    });
+                } else {
+                    document.getElementById('produto-detalhes').innerHTML = '<p>Produto não encontrado.</p>';
+                }
+            })
+            .catch(error => console.error('Erro ao carregar os detalhes do produto:', error));
+    </script>
+</body>
+</html>
